@@ -1,5 +1,5 @@
 PROJECT_PATH="/home/wwwroot/Myindex"
-PROHECT_ID="Mindex"
+PROHECT_ID="www"
 
 echo "--Auto Deploy--"
 cd $PROJECT_PATH
