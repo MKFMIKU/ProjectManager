@@ -1,4 +1,4 @@
-PROJECT_PATH = '/home/wwwroot./Myindex'
+PROJECT_PATH = '/home/wwwroot/Myindex'
 
 echo "--Auto Deploy--"
 cd $PROJECT_PATH
