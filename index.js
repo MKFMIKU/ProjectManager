@@ -21,11 +21,11 @@ http.createServer(function (req, res) {
 
 indexHandler.on('error', function (err) {
   console.error('Error:', err.message)
-})
+});
 
 indexHandler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref);
   run_cmd('sh', ['./bin/Myindex.sh'], function(text){ console.log(text) });
-})
+});
