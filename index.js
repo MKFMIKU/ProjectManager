@@ -1,6 +1,7 @@
 var http = require('http'),
 	createHandler = require('github-webhook-handler'),
-	indexHandler = createHandler({ path: '/Myindex', secret: '12345678' });
+	indexHandler = createHandler({ path: '/Myindex', secret: '12345678' }),
+  labHandler = createHandler({ path: '/lab', secret: '12345678' }),
 
 function run_cmd(cmd, args, callback) {
   var spawn = require('child_process').spawn;
@@ -17,6 +18,10 @@ http.createServer(function (req, res) {
     res.statusCode = 404;
     res.end('Api for Myindex');
   });
+  labHandler(req, res, function (err) {
+    res.statusCode = 404;
+    res.end('Api for lab');
+  });
 }).listen(4000);
 
 indexHandler.on('error', function (err) {
@@ -28,4 +33,11 @@ indexHandler.on('push', function (event) {
     event.payload.repository.name,
     event.payload.ref);
   run_cmd('sh', ['./bin/Myindex.sh'], function(text){ console.log(text) });
+});
+
+indexHandler.on('push', function (event) {
+  console.log('Received a push event for %s to %s',
+    event.payload.repository.name,
+    event.payload.ref);
+  run_cmd('sh', ['./bin/lab.sh'], function(text){ console.log(text) });
 });
