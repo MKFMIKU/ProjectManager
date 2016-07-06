@@ -44,7 +44,7 @@ indexHandler.on('push', function (event) {
   run_cmd('sh', ['./bin/Myindex.sh'], function(text){ console.log(text) });
 });
 
-indexHandler.on('push', function (event) {
+labHandler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref);
