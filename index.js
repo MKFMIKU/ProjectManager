@@ -14,14 +14,19 @@ function run_cmd(cmd, args, callback) {
 
 
 http.createServer(function (req, res) {
-  indexHandler(req, res, function (err) {
-    res.statusCode = 404;
-    res.end('Api for Myindex');
-  });
-  labHandler(req, res, function (err) {
-    res.statusCode = 404;
-    res.end('Api for lab');
-  });
+  if(req.url=='/Myindex'){
+      indexHandler(req, res, function (err) {
+      res.statusCode = 404;
+      res.end('Api for Myindex');
+    });
+  }
+
+  if(req.url=='/lab'){
+    labHandler(req, res, function (err) {
+      res.statusCode = 404;
+      res.end('Api for lab');
+    });
+  }
 }).listen(4000);
 
 indexHandler.on('error', function (err) {
