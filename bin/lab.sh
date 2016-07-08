@@ -1,5 +1,5 @@
 PROJECT_PATH="/home/DormitoryD"
-PROHECT_ID="1"
+PROHECT_ID="index"
 
 echo "--Auto Deploy--"
 cd $PROJECT_PATH
